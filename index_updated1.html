@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bichitra Samantaray | Data Analyst Portfolio</title>
+  <meta name="description" content="Bichitra Samantaray's Data Analyst portfolio — Excel, Power BI, SQL, Python and business analytics projects.">
+  <style>
+    :root{
+      --bg:#070a12;
+      --panel:#101522;
+      --panel2:#0d1220;
+      --text:#f4f7ff;
+      --muted:#a9b1c5;
+      --line:rgba(255,255,255,.09);
+      --purple:#7c4dff;
+      --cyan:#21d4fd;
+      --green:#52e0a4;
+    }
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;background:
+      radial-gradient(circle at 80% 15%,rgba(33,212,253,.12),transparent 25%),
+      radial-gradient(circle at 15% 55%,rgba(124,77,255,.13),transparent 28%),
+      var(--bg);color:var(--text);
+      font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.55
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(16px);background:rgba(7,10,18,.78);
+      border-bottom:1px solid var(--line)
+    }
+    .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.3px}
+    .brand span{color:var(--cyan)}
+    .links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+    .links a:hover{color:white}
+    .menu-toggle{display:none}
+    .menu-btn{display:none;flex-direction:column;cursor:pointer;padding:8px}
+    .menu-btn span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px;margin:3px 0}
+    .hero{min-height:700px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:60px}
+    .badge,.tag{
+      display:inline-block;border:1px solid rgba(124,77,255,.5);
+      background:rgba(124,77,255,.12);color:#d9ccff;
+      border-radius:999px;padding:6px 11px;font-size:12px
+    }
+    h1{font-size:clamp(42px,6vw,72px);line-height:.98;margin:18px 0}
+    .gradient{background:linear-gradient(90deg,#fff,#b8f5ff,#a990ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:var(--muted);font-size:18px;max-width:650px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+    .btn{
+      padding:12px 18px;border-radius:10px;font-weight:700;font-size:14px;
+      border:1px solid var(--line);display:inline-block
+    }
+    .primary{background:linear-gradient(90deg,var(--purple),var(--cyan));border:0}
+    .ghost{background:rgba(255,255,255,.03)}
+    .stats{display:flex;gap:12px;flex-wrap:wrap}
+    .stat,.card{
+      background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      border:1px solid var(--line);border-radius:18px
+    }
+    .stat{padding:14px 20px;min-width:125px}
+    .stat b{font-size:24px;display:block}
+    .stat span{font-size:12px;color:var(--muted)}
+    .profile-card{padding:30px;min-height:360px;display:flex;flex-direction:column;justify-content:end}
+    .avatar{
+      width:105px;height:105px;border-radius:50%;
+      background:linear-gradient(135deg,var(--purple),var(--cyan));
+      display:grid;place-items:center;font-size:32px;font-weight:800;margin-bottom:auto
+    }
+    section{padding:95px 0}
+    .section-head{margin-bottom:30px}
+    .eyebrow{color:var(--cyan);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.6px}
+    h2{font-size:38px;margin:7px 0}
+    .sub{color:var(--muted);max-width:700px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{padding:24px}
+    .card h3{margin-top:0}
+    .card p,.card li{color:var(--muted);font-size:14px}
+    .skills{display:flex;gap:8px;flex-wrap:wrap}
+    .skill{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:#0c111d;font-size:12px}
+    .project{grid-column:span 2}
+    .project-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+    .project-title{font-size:23px;font-weight:800}
+    .metric-row{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+    .metric{padding:12px 14px;border-radius:12px;background:rgba(33,212,253,.06);border:1px solid rgba(33,212,253,.15)}
+    .metric b{display:block;font-size:18px}
+    .metric span{font-size:11px;color:var(--muted)}
+    .timeline{border-left:1px solid var(--line);padding-left:24px}
+    .timeline-item{margin-bottom:25px}
+    footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    @media(max-width:800px){
+      .links{
+        display:none;position:absolute;top:70px;left:0;right:0;
+        flex-direction:column;gap:0;background:rgba(7,10,18,.97);
+        border-bottom:1px solid var(--line);backdrop-filter:blur(16px)
+      }
+      .links a{padding:16px 24px;border-top:1px solid var(--line)}
+      .menu-btn{display:flex}
+      .menu-toggle:checked ~ .links{display:flex}
+      .hero{grid-template-columns:1fr;padding:55px 0}
+      .grid{grid-template-columns:1fr}
+      .project{grid-column:span 1}
+      section{padding:65px 0}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#home">Bichitra<span>.</span></a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-btn" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home">
+      <div class="container hero">
+        <div>
+          <span class="badge">Available for Data Analyst Opportunities</span>
+          <h1>Turning data into <span class="gradient">clear business insights.</span></h1>
+          <p>
+            I'm Bichitra, a data-analytics professional with 7+ years of overall
+            experience in customer support and sales, now building hands-on analytics solutions
+            with Excel, Power BI, SQL and Python.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="Bichitra-Samantaray-Resume.pdf">Download Resume</a>
+            <a class="btn ghost" href="mailto:bichitra.1094@gmail.com">Email Me</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>7+</b><span>Years Overall Experience</span></div>
+            <div class="stat"><b>2</b><span>Featured Analytics Projects</span></div>
+            <div class="stat"><b>4+</b><span>Core Analytics Tools</span></div>
+          </div>
+        </div>
+        <div class="card profile-card">
+          <div class="avatar">BS</div>
+          <h3>Bichitra Samantaray</h3>
+          <p>Data Analyst | Excel | Power BI | SQL | Python</p>
+          <div class="skills">
+            <span class="skill">Business Analytics</span>
+            <span class="skill">Dashboarding</span>
+            <span class="skill">Data Cleaning</span>
+            <span class="skill">Reporting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">About</div>
+          <h2>From customer-facing work to data analytics.</h2>
+          <p class="sub">
+            I bring a customer and business perspective to analytics, with a focus on turning
+            raw operational data into useful reports, dashboards and decisions.
+          </p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Profile</h3>
+            <p>
+              B.Tech graduate from BPUT Odisha with hands-on project experience in Excel,
+              Power BI, SQL, Power Query, DAX and Python basics.
+            </p>
+          </div>
+          <div class="card">
+            <h3>What I enjoy</h3>
+            <p>
+              Finding patterns, building clear dashboards, simplifying business questions,
+              and presenting insights in a way that stakeholders can understand quickly.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Current focus</h3>
+            <p>
+              Data Analyst / BI / MIS-oriented roles where I can combine business experience
+              with analytics and reporting skills.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Skills</div>
+          <h2>Tools & techniques</h2>
+          <p class="sub">The core technologies currently represented in my analytics portfolio.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Analytics & BI</h3>
+            <div class="skills">
+              <span class="skill">Excel</span><span class="skill">Power BI</span>
+              <span class="skill">Power Query</span><span class="skill">DAX</span>
+              <span class="skill">Dashboarding</span><span class="skill">PivotTables</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Data & Programming</h3>
+            <div class="skills">
+              <span class="skill">SQL</span><span class="skill">Python Basics</span>
+              <span class="skill">Pandas</span><span class="skill">NumPy</span>
+              <span class="skill">Data Cleaning</span><span class="skill">EDA</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Business Analytics</h3>
+            <div class="skills">
+              <span class="skill">KPI Tracking</span><span class="skill">Customer Analytics</span>
+              <span class="skill">RFM Analysis</span><span class="skill">Reporting</span>
+              <span class="skill">Trend Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Projects</div>
+          <h2>Selected analytics work</h2>
+          <p class="sub">Selected projects demonstrating practical business analytics, dashboarding and data storytelling.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card project">
+            <div class="project-top">
+              <div>
+                <div class="project-title">FNP Sales Analysis — Excel Dashboard</div>
+                <p>Business analytics project using Ferns & Petals (FNP) order data.</p>
+              </div>
+              <span class="tag">Excel</span>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric"><b>1,000</b><span>Orders analysed</span></div>
+              <div class="metric"><b>₹35.21L</b><span>Total revenue</span></div>
+              <div class="metric"><b>5.53 days</b><span>Avg. delivery time</span></div>
+            </div>
+
+            <p>
+              Analysed 2023 order data to understand revenue, customer spending, product and
+              category performance, occasions, city-level demand, monthly trends and delivery
+              efficiency.
+            </p>
+
+            <ul>
+              <li>Cleaned and prepared the order-level dataset in Excel.</li>
+              <li>Created calculated fields for Revenue and Order-to-Delivery Time.</li>
+              <li>Built PivotTables, PivotCharts, slicers and KPI-style dashboard views.</li>
+              <li>Identified seasonal demand patterns, top products/categories and stronger occasions.</li>
+              <li>Designed the dashboard to convert raw transactions into management-friendly insights.</li>
+            </ul>
+
+            <div class="buttons">
+              <a class="btn primary" href="https://github.com/bichitra-sam/FNP-Excel-Project" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <div>
+                <div class="project-title">Credit Card Portfolio Analysis — Power BI Dashboard</div>
+                <p>Interactive Power BI project analyzing credit card customer and transaction performance.</p>
+              </div>
+              <span class="tag">Power BI</span>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric"><b>$55.3M</b><span>Total revenue</span></div>
+              <div class="metric"><b>$7.84M</b><span>Interest earned</span></div>
+              <div class="metric"><b>656K</b><span>Transactions</span></div>
+            </div>
+
+            <p>
+              Built a two-page Power BI dashboard to understand where credit card revenue comes from
+              and how that revenue is generated across customer segments, card tiers, transaction
+              channels and spending categories.
+            </p>
+
+            <ul>
+              <li>Cleaned and transformed customer and transaction data using Power Query.</li>
+              <li>Created DAX measures and KPI cards for revenue, interest, transactions, income and satisfaction.</li>
+              <li>Built Customer and Transaction reports with cross-filtering and interactive slicers.</li>
+              <li>Analysed revenue across occupation, age, income, education, marital status, state and card category.</li>
+              <li>Analysed transaction performance by quarter, expenditure type and transaction channel.</li>
+            </ul>
+
+            <div class="buttons">
+              <a class="btn primary" href="https://github.com/bichitra-sam/Creditcard_Analysis_report" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Experience</div>
+          <h2>Professional journey</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Senior Consultant — InTouch CX Pvt. Ltd.</h3>
+            <p class="sub">Bengaluru · Jan 2021 – Jan 2025</p>
+            <p class="sub">Customer-facing and business operations experience supporting a transition into analytics-focused work.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Senior Representative — Concentrix Pvt. Ltd.</h3>
+            <p class="sub">Bengaluru · Jan 2019 – Aug 2020</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Digital Interaction Executive — 24/7.ai</h3>
+            <p class="sub">Bengaluru · Sep 2017 – Dec 2018</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="card">
+          <div class="eyebrow">Resume</div>
+          <h2>Want the full career story?</h2>
+          <p class="sub">Get the full picture — role history, responsibilities and achievements across customer support, sales and analytics.</p>
+          <a class="btn primary" href="Bichitra-Samantaray-Resume.pdf">Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Contact</div>
+          <h2>Let's connect.</h2>
+          <p class="sub">The quickest ways to reach me — email, call, or connect on LinkedIn and GitHub.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Email</h3><p><a href="mailto:bichitra.1094@gmail.com">bichitra.1094@gmail.com</a></p></div>
+          <div class="card"><h3>Phone</h3><p><a href="tel:+919658037300">+91-9658037300</a></p></div>
+          <div class="card"><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/bichitra-samantaray" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/bichitra-samantaray</a></p></div>
+          <div class="card"><h3>GitHub</h3><p><a href="https://github.com/bichitra-sam" target="_blank" rel="noopener noreferrer">github.com/bichitra-sam</a></p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Bichitra Samantaray · Data Analyst Portfolio</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.links a').forEach(function(a){
+      a.addEventListener('click', function(){
+        var cb = document.getElementById('menu-toggle');
+        if (cb) cb.checked = false;
+      });
+    });
+  </script>
+</body>
+</html>
