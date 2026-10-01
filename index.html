@@ -37,9 +37,6 @@
     .brand span{color:var(--cyan)}
     .links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
     .links a:hover{color:white}
-    .menu-toggle{display:none}
-    .menu-btn{display:none;flex-direction:column;cursor:pointer;padding:8px}
-    .menu-btn span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px;margin:3px 0}
     .hero{min-height:700px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:60px}
     .badge,.tag{
       display:inline-block;border:1px solid rgba(124,77,255,.5);
@@ -92,14 +89,7 @@
     .timeline-item{margin-bottom:25px}
     footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
     @media(max-width:800px){
-      .links{
-        display:none;position:absolute;top:70px;left:0;right:0;
-        flex-direction:column;gap:0;background:rgba(7,10,18,.97);
-        border-bottom:1px solid var(--line);backdrop-filter:blur(16px)
-      }
-      .links a{padding:16px 24px;border-top:1px solid var(--line)}
-      .menu-btn{display:flex}
-      .menu-toggle:checked ~ .links{display:flex}
+      .links{display:none}
       .hero{grid-template-columns:1fr;padding:55px 0}
       .grid{grid-template-columns:1fr}
       .project{grid-column:span 1}
@@ -111,10 +101,6 @@
   <nav>
     <div class="container nav-inner">
       <a class="brand" href="#home">Bichitra<span>.</span></a>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle">
-      <label for="menu-toggle" class="menu-btn" aria-label="Toggle navigation menu">
-        <span></span><span></span><span></span>
-      </label>
       <div class="links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -133,7 +119,7 @@
           <span class="badge">Available for Data Analyst Opportunities</span>
           <h1>Turning data into <span class="gradient">clear business insights.</span></h1>
           <p>
-            I'm Bichitra, a data-analytics professional with 7+ years of overall
+            I'm Bichitra Samantaray, a data-analytics professional with 7+ years of overall
             experience in customer support and sales, now building hands-on analytics solutions
             with Excel, Power BI, SQL and Python.
           </p>
@@ -239,7 +225,7 @@
         <div class="section-head">
           <div class="eyebrow">Projects</div>
           <h2>Selected analytics work</h2>
-          <p class="sub">Selected projects demonstrating practical business analytics, dashboarding and data storytelling.</p>
+          <p class="sub">Selected projects demonstrating practical business analytics, dashboarding, customer analytics and data storytelling.</p>
         </div>
 
         <div class="grid">
@@ -272,8 +258,10 @@
               <li>Designed the dashboard to convert raw transactions into management-friendly insights.</li>
             </ul>
 
+            <!-- Replace YOUR_GITHUB_USERNAME with your real GitHub username -->
             <div class="buttons">
-              <a class="btn primary" href="https://github.com/bichitra-sam/FNP-Excel-Project" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+              <a class="btn primary" href="https://github.com/bichitra-sam/FNP-Excel-Project" target="_blank">View on GitHub ↗</a>
+              <a class="btn ghost" href="https://github.com/bichitra-sam/FNP-Excel-Project" target="_blank">Project Repository</a>
             </div>
           </article>
 
@@ -283,7 +271,7 @@
                 <div class="project-title">Credit Card Portfolio Analysis — Power BI Dashboard</div>
                 <p>Interactive Power BI project analyzing credit card customer and transaction performance.</p>
               </div>
-              <span class="tag">Power BI</span>
+              <span class="tag">Power BI · SQL · Python · DAX · Power Query · RFM</span>
             </div>
 
             <div class="metric-row">
@@ -307,7 +295,44 @@
             </ul>
 
             <div class="buttons">
-              <a class="btn primary" href="https://github.com/bichitra-sam/Creditcard_Analysis_report" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+              <a class="btn primary" href="https://github.com/bichitra-sam/Creditcard_Analysis_report" target="_blank">View on GitHub ↗</a>
+              <a class="btn ghost" href="https://github.com/bichitra-sam/Creditcard_Analysis_report" target="_blank">Project Repository</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <div>
+                <div class="project-title">E-Commerce Customer Segmentation — RFM Analysis</div>
+                <p>Interactive Power BI project analyzing e-commerce sales, customer purchasing behavior and customer value.</p>
+              </div>
+              <span class="tag">Power BI</span>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric"><b>50K+</b><span>Transactions analyzed</span></div>
+              <div class="metric"><b>30%</b><span>Faster processing</span></div>
+              <div class="metric"><b>25%</b><span>Conversion increase</span></div>
+              <div class="metric"><b>15%</b><span>CLV increase</span></div>
+            </div>
+
+            <p>
+              Built an end-to-end customer analytics solution using SQL, Python, Power BI, DAX and Power Query,
+              applying RFM analysis to 50,000+ customer transactions to identify customer value, retention and
+              revenue opportunities.
+            </p>
+
+            <ul>
+              <li>Extracted raw transactional data using SQL and cleaned/transformed datasets with Python (Pandas, NumPy) and Power Query.</li>
+              <li>Created Recency, Frequency and Monetary metrics and applied 1–10 decile scoring for customer segmentation.</li>
+              <li>Built dynamic Power BI/DAX segmentation for Champions, Loyal Customers, At-Risk and Dormant customers.</li>
+              <li>Identified that 10% of customers contributed approximately 45% of revenue and highlighted at-risk customers for re-engagement.</li>
+              <li>Built interactive Power BI dashboards with drilldowns by region, product type and customer tier, plus automated refresh and alerts.</li>
+            </ul>
+
+            <div class="buttons">
+              <a class="btn primary" href="https://github.com/bichitra-sam/e-commerce-customer-segmentation" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+              <a class="btn ghost" href="https://github.com/bichitra-sam/e-commerce-customer-segmentation" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
           </article>
         </div>
@@ -343,7 +368,7 @@
         <div class="card">
           <div class="eyebrow">Resume</div>
           <h2>Want the full career story?</h2>
-          <p class="sub">Get the full picture — role history, responsibilities and achievements across customer support, sales and analytics.</p>
+          <p class="sub">Add your final ATS-friendly resume PDF to this folder and keep the button below linked to it.</p>
           <a class="btn primary" href="Bichitra-Samantaray-Resume.pdf">Download Resume</a>
         </div>
       </div>
@@ -354,13 +379,13 @@
         <div class="section-head">
           <div class="eyebrow">Contact</div>
           <h2>Let's connect.</h2>
-          <p class="sub">The quickest ways to reach me — email, call, or connect on LinkedIn and GitHub.</p>
+          <p class="sub">Replace the placeholders below with your real professional links before publishing.</p>
         </div>
         <div class="grid">
           <div class="card"><h3>Email</h3><p><a href="mailto:bichitra.1094@gmail.com">bichitra.1094@gmail.com</a></p></div>
           <div class="card"><h3>Phone</h3><p><a href="tel:+919658037300">+91-9658037300</a></p></div>
-          <div class="card"><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/bichitra-samantaray" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/bichitra-samantaray</a></p></div>
-          <div class="card"><h3>GitHub</h3><p><a href="https://github.com/bichitra-sam" target="_blank" rel="noopener noreferrer">github.com/bichitra-sam</a></p></div>
+          <div class="card"><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/bichitra-samantaray" target="_blank">www.linkedin.com/in/bichitra-samantaray</a></p></div>
+          <div class="card"><h3>GitHub</h3><p><a href="https://github.com/bichitra-sam" target="_blank">github.com/bichitra-sam</a></p></div>
         </div>
       </div>
     </section>
@@ -369,14 +394,5 @@
   <footer>
     <div class="container">© 2026 Bichitra Samantaray · Data Analyst Portfolio</div>
   </footer>
-
-  <script>
-    document.querySelectorAll('.links a').forEach(function(a){
-      a.addEventListener('click', function(){
-        var cb = document.getElementById('menu-toggle');
-        if (cb) cb.checked = false;
-      });
-    });
-  </script>
 </body>
 </html>
